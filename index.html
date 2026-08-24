@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiny Care | Furo Humanizado em Manaus</title>
+    <meta name="description" content="Cuidado, afeto e biossegurança em cada furo. Transformamos o primeiro furo e as perfurações corporais em uma experiência leve e livre de traumas em Manaus.">
+    
+    <!-- Google Fonts: Outfit (moderna e amigável) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e', // Cor principal (rosé forte)
+                            600: '#e11d48',
+                            700: '#be123c',
+                        },
+                        clinica: {
+                            50: '#f0fdfa',
+                            500: '#14b8a6', // Teal para toques de saúde/biossegurança
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados leves para complementar o Tailwind */
+        body { font-family: 'Outfit', sans-serif; }
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 241, 242, 0.8)), url('https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .blob-shape {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        @keyframes morph {
+            0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+            67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+        }
+        /* Custom scrollbar para tabelas */
+        .custom-scrollbar::-webkit-scrollbar { height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #fda4af; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #fb7185; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen relative">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-brand-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="ChatGPT Image 23 de ago. de 2026, 12_44_22.png" alt="Logo Tiny Care" class="h-16 w-auto drop-shadow-md hover:scale-105 transition-transform duration-300">
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#diferenciais" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Diferenciais</a>
+                    <a href="#sobre" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Sobre Nós</a>
+                    <a href="#servicos" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Serviços e Valores</a>
+                    <a href="#escola" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Escola</a>
+                    <a href="https://wa.me/5592981234567" target="_blank" class="bg-brand-500 hover:bg-brand-600 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Agendar
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand-500 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-brand-50 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#diferenciais" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-500 hover:bg-brand-50 rounded-md">Diferenciais</a>
+                <a href="#sobre" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-500 hover:bg-brand-50 rounded-md">Sobre Nós</a>
+                <a href="#servicos" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-500 hover:bg-brand-50 rounded-md">Serviços e Valores</a>
+                <a href="#escola" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-500 hover:bg-brand-50 rounded-md">Escola</a>
+                <a href="#contato" class="mobile-link block px-3 py-3 text-base font-medium text-brand-600 bg-brand-50 rounded-md mt-4 text-center">Agendar Agora</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-20 lg:pt-0 min-h-[90vh] flex items-center hero-bg relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-16 lg:py-0">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 text-brand-700 font-medium text-sm mb-2 shadow-sm">
+                        <i class="fa-solid fa-heart text-brand-500"></i>
+                        Referência em Manaus-AM
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+                        Cuidado, afeto e <span class="text-brand-500">biossegurança</span> em cada furo.
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Transformamos o primeiro furo e as perfurações corporais em uma experiência leve, acolhedora e <strong class="text-brand-600">100% livre de traumas</strong>.
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/5592981234567" target="_blank" class="bg-brand-500 hover:bg-brand-600 text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg shadow-brand-500/30 flex items-center justify-center gap-3 text-lg transform hover:-translate-y-1">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            Agendar via WhatsApp
+                        </a>
+                        <a href="#servicos" class="bg-white text-slate-700 hover:bg-brand-50 border border-slate-200 px-8 py-4 rounded-full font-medium transition-all flex items-center justify-center text-lg">
+                            Ver Valores
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden lg:flex justify-center relative">
+                    <!-- Elemento decorativo -->
+                    <div class="absolute inset-0 bg-brand-200 blob-shape opacity-40 blur-2xl transform scale-110"></div>
+                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80" alt="Bebê dormindo tranquilamente" class="rounded-3xl shadow-2xl relative z-10 w-4/5 object-cover h-[500px] border-4 border-white">
+                    
+                    <!-- Floating badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl z-20 flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                        <div class="bg-clinica-50 text-clinica-500 p-3 rounded-full">
+                            <i class="fa-solid fa-shield-virus text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500">Materiais 100%</p>
+                            <p class="font-bold text-slate-800">Descartáveis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="diferenciais" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Nossos Diferenciais</h2>
+                <div class="h-1.5 w-24 bg-brand-400 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Diff 1 -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-shadow group">
+                    <div class="w-16 h-16 bg-clinica-50 text-clinica-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-pump-medical"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Biossegurança Clínica</h3>
+                    <p class="text-slate-600 leading-relaxed">Materiais 100% descartáveis e esterilização rigorosa em autoclave sob responsabilidade técnica.</p>
+                </div>
+                <!-- Diff 2 -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-shadow group">
+                    <div class="w-16 h-16 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-regular fa-gem"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Joias de Alta Pureza</h3>
+                    <p class="text-slate-600 leading-relaxed">Exclusivamente em Titânio Grau Implante ASTM F-136, hipoalergênicas e ideais para cicatrização.</p>
+                </div>
+                <!-- Diff 3 -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-shadow group">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Suporte Completo</h3>
+                    <p class="text-slate-600 leading-relaxed">Acompanhamento pós-furo de 30 dias com kit aftercare e orientações detalhadas passo a passo.</p>
+                </div>
+                <!-- Diff 4 -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-shadow group">
+                    <div class="w-16 h-16 bg-brand-50 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Atendimento Humanizado</h3>
+                    <p class="text-slate-600 leading-relaxed">Respeito total ao tempo, às emoções e ao conforto de bebês, crianças e adultos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-24 bg-brand-50 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative">
+                    <img src="logo-tiny.png" alt="Profissional realizando perfuração" class="rounded-[2rem] shadow-2xl relative z-10 object-cover h-[500px] w-full">
+                    <div class="absolute -top-6 -left-6 w-32 h-32 bg-brand-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-clinica-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Sobre a <span class="text-brand-500">Tiny Care</span></h2>
+                    <div class="space-y-6 text-slate-700 text-lg leading-relaxed">
+                        <p>
+                            Nascida em 2026 em Manaus-AM, a Tiny Care surgiu da dedicação de uma profissional da saúde decidida a substituir o medo e os métodos ultrapassados por uma experiência afetiva, segura e acolhedora.
+                        </p>
+                        <p>
+                            O nome carrega o significado de <strong class="text-brand-600">"pequeno cuidado"</strong>, expressando a convicção de que cada detalhe merece a máxima atenção. 
+                        </p>
+                        <p>
+                            Atendemos bebês, crianças, jovens e adultos, unindo técnica rigorosa e carinho para transformar cada perfuração em um momento de celebração e amor.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-10 grid grid-cols-2 gap-6 border-t border-brand-200 pt-8">
+                        <div>
+                            <div class="text-3xl font-bold text-brand-500 mb-1">Manaus</div>
+                            <div class="text-sm text-slate-500">Nossa Base de Atendimento</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-brand-500 mb-1">2026</div>
+                            <div class="text-sm text-slate-500">Ano de Fundação</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-500 font-semibold tracking-wider uppercase text-sm">Transparência</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">Serviços e Valores</h2>
+                <div class="h-1.5 w-24 bg-brand-400 mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-600 max-w-2xl mx-auto">Tabela válida para Manaus. Realizamos também atendimentos no interior do Amazonas em datas exclusivas (valores sob consulta regional).</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+                <div class="overflow-x-auto custom-scrollbar">
+                    <table class="w-full text-left border-collapse min-w-[800px]">
+                        <thead>
+                            <tr class="bg-slate-50 border-b border-slate-200">
+                                <th class="p-6 text-slate-800 font-bold uppercase text-sm tracking-wider w-1/4">Serviço</th>
+                                <th class="p-6 text-slate-800 font-bold uppercase text-sm tracking-wider w-2/5">Descrição</th>
+                                <th class="p-6 text-slate-800 font-bold uppercase text-sm tracking-wider bg-brand-50/50 text-center rounded-tl-lg">Clínica</th>
+                                <th class="p-6 text-slate-800 font-bold uppercase text-sm tracking-wider bg-brand-100/50 text-center rounded-tr-lg">Home Care</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-6 font-semibold text-brand-700 flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-500"><i class="fa-solid fa-baby"></i></div>
+                                    Primeiro Furo Baby
+                                </td>
+                                <td class="p-6 text-slate-600 text-sm">Aplicação delicada e silenciosa com pomada anestésica, materiais estéreis e mimo especial pós-furo.</td>
+                                <td class="p-6 font-bold text-slate-800 text-center text-lg bg-brand-50/20">R$ 390</td>
+                                <td class="p-6 font-bold text-slate-800 text-center text-lg bg-brand-100/20">R$ 460 <br><span class="text-xs text-slate-500 font-normal block mt-1">(taxa de R$ 70 inclusa)</span></td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-6 font-semibold text-brand-700 flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-500"><i class="fa-solid fa-person-dress"></i></div>
+                                    2º e 3º Furo (Adulto / Teen)
+                                </td>
+                                <td class="p-6 text-slate-600 text-sm">Perfurações no lóbulo com alinhamento anatômico e joias em titânio.</td>
+                                <td class="p-6 font-bold text-slate-800 text-center text-lg bg-brand-50/20">R$ 225</td>
+                                <td class="p-6 font-bold text-slate-800 text-center text-lg bg-brand-100/20">R$ 325</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-6 font-semibold text-brand-700 flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-500"><i class="fa-solid fa-ear-listen"></i></div>
+                                    Furo em Cartilagem
+                                </td>
+                                <td class="p-6 text-slate-600 text-sm">Perfurações seguras em Hélice ou Trágus com joia de rosca interna.</td>
+                                <td class="p-6 font-bold text-slate-800 text-center text-lg bg-brand-50/20">R$ 165</td>
+                                <td class="p-6 font-bold text-slate-800 text-center text-lg bg-brand-100/20">R$ 235</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-6 font-semibold text-brand-700 flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-500"><i class="fa-solid fa-wrench"></i></div>
+                                    Correção de Furo Torto
+                                </td>
+                                <td class="p-6 text-slate-600 text-sm">Reparo especializado para orifícios assimétricos ou com histórico de trauma.</td>
+                                <td class="p-6 font-bold text-slate-800 text-center text-lg bg-brand-50/20">R$ 295</td>
+                                <td class="p-6 font-bold text-slate-800 text-center text-lg bg-brand-100/20">R$ 365</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors border-b-0">
+                                <td class="p-6 font-semibold text-brand-700 flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-500"><i class="fa-solid fa-gem"></i></div>
+                                    Venda Avulsa & Pós-Furo
+                                </td>
+                                <td class="p-6 text-slate-600 text-sm">Up-sell de peças em titânio/ouro e consultoria para trocas de joias.</td>
+                                <td class="p-6 font-bold text-slate-800 text-center text-lg bg-brand-50/20">R$ 105</td>
+                                <td class="p-6 font-bold text-slate-800 text-center text-lg bg-brand-100/20">R$ 175</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a href="#contato" class="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-700 transition-colors">
+                    Solicitar agendamento agora <i class="fa-solid fa-arrow-right mt-0.5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="escola" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <!-- Elementos decorativos de fundo -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20"></div>
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-clinica-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-5 gap-12 items-center">
+                
+                <div class="lg:col-span-2 space-y-6 text-center lg:text-left">
+                    <div class="inline-block bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full text-brand-300 font-medium text-sm">
+                        <i class="fa-solid fa-graduation-cap mr-2"></i> Cursos Presenciais
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Escola Tiny Care</h2>
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        Capacitação completa para profissionais da saúde que desejam atuar e faturar no mercado de perfuração humanizada.
+                    </p>
+                    <div class="pt-6">
+                        <a href="https://wa.me/5592981234567" target="_blank" class="bg-white text-slate-900 hover:bg-brand-50 px-8 py-4 rounded-full font-bold transition-all shadow-lg flex items-center justify-center gap-3 w-full sm:w-auto inline-flex">
+                            <i class="fa-brands fa-whatsapp text-brand-500 text-xl"></i>
+                            Quero ser Aluno(a)
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-3 bg-white/5 border border-white/10 p-8 md:p-10 rounded-[2rem] backdrop-blur-md">
+                    <h3 class="text-2xl font-bold mb-6 text-brand-300 border-b border-white/10 pb-4">Incluso no Curso</h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-toolbox text-clinica-500"></i> Kit do Aluno Completo:
+                            </h4>
+                            <ul class="grid sm:grid-cols-2 gap-3 text-sm text-slate-300">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-400 mt-1"></i> Aplicador silencioso System 75</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-400 mt-1"></i> Par de brincos Studex de treino</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-400 mt-1"></i> Paquímetro de precisão</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-400 mt-1"></i> Lanterna clínica (luz branca)</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-400 mt-1"></i> Caneta marcadora cirúrgica & palitos</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-400 mt-1"></i> Sementes p/ ativação Ponto Yintang</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-400 mt-1"></i> Pinça cirúrgica reta</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-400 mt-1"></i> Taper guia</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-400 mt-1"></i> Kit de cateteres descartáveis</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-400 mt-1"></i> Joias básicas em titânio</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-book-open text-clinica-500"></i> Material Didático:
+                            </h4>
+                            <ul class="space-y-3 text-sm text-slate-300">
+                                <li class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0"><i class="fa-solid fa-book text-brand-400"></i></div>
+                                    Apostila física encadernada
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0"><i class="fa-solid fa-file-word text-brand-400"></i></div>
+                                    Pasta digital com arquivos editáveis (Anamnese, TCLES, POPs 01 e 02, Termo de Imagem)
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0"><i class="fa-solid fa-certificate text-brand-400"></i></div>
+                                    Certificado oficial de conclusão assinado por Responsável Técnico
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-24 bg-brand-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-brand-100 flex flex-col lg:flex-row">
+                
+                <!-- Informações de Contato -->
+                <div class="bg-brand-500 text-white p-10 md:p-14 lg:w-2/5 flex flex-col justify-between relative overflow-hidden">
+                    <!-- Detalhe visual -->
+                    <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-brand-600 rounded-full opacity-50"></div>
+                    <div class="absolute top-10 right-10 opacity-20"><i class="fa-solid fa-stethoscope text-9xl"></i></div>
+                    
+                    <div class="relative z-10">
+                        <h2 class="text-3xl font-bold mb-2">Fale Conosco</h2>
+                        <p class="text-brand-100 mb-10">Estamos prontas para atender você com o maior carinho de Manaus.</p>
+                        
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-brand-600 flex items-center justify-center shrink-0 text-xl">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Localização</h4>
+                                    <p class="text-brand-100 text-sm leading-relaxed">
+                                        Av. Ephigênio Salles, 1299<br>
+                                        Sala 402 - Adrianópolis<br>
+                                        Manaus - AM
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-brand-600 flex items-center justify-center shrink-0 text-xl">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">WhatsApp</h4>
+                                    <p class="text-brand-100 text-sm">
+                                        <a href="https://wa.me/5592981234567" target="_blank" class="hover:text-white transition-colors">(92) 98123-4567</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-brand-600 flex items-center justify-center shrink-0 text-xl">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">E-mail</h4>
+                                    <p class="text-brand-100 text-sm">
+                                        <a href="mailto:contato@tinycaremanaus.com.br" class="hover:text-white transition-colors break-all">contato@tinycaremanaus.com.br</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-brand-600 flex items-center justify-center shrink-0 text-xl">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-1">Horário de Atendimento</h4>
+                                    <p class="text-brand-100 text-sm leading-relaxed">
+                                        Seg a Sex: 08h às 18h<br>
+                                        Sábados: 08h às 14h<br>
+                                        <span class="italic font-light opacity-90">(Atendimento com hora marcada)</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Agendamento -->
+                <div class="p-10 md:p-14 lg:w-3/5 bg-white">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Formulário de Agendamento</h3>
+                    <form id="agendamento-form" class="space-y-5">
+                        
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div class="space-y-1">
+                                <label for="nome" class="block text-sm font-medium text-slate-700">Nome Completo *</label>
+                                <input type="text" id="nome" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Seu nome">
+                            </div>
+                            
+                            <div class="space-y-1">
+                                <label for="whatsapp" class="block text-sm font-medium text-slate-700">WhatsApp (com DDD) *</label>
+                                <input type="tel" id="whatsapp" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="(92) 90000-0000">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div class="space-y-1">
+                                <label for="idade" class="block text-sm font-medium text-slate-700">Idade de quem vai furar *</label>
+                                <input type="text" id="idade" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Ex: 3 meses, 25 anos...">
+                            </div>
+                            
+                            <div class="space-y-1">
+                                <label for="tipo" class="block text-sm font-medium text-slate-700">Tipo de Atendimento *</label>
+                                <select id="tipo" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all bg-slate-50 focus:bg-white text-slate-700">
+                                    <option value="" disabled selected>Selecione o local</option>
+                                    <option value="clinica">Na Clínica (Adrianópolis)</option>
+                                    <option value="homecare">Home Care (Em domicílio)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label for="servico" class="block text-sm font-medium text-slate-700">Serviço Desejado *</label>
+                            <select id="servico" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all bg-slate-50 focus:bg-white text-slate-700">
+                                <option value="" disabled selected>Escolha o serviço...</option>
+                                <option value="primeiro_furo">Primeiro Furo Baby</option>
+                                <option value="adulto">2º e 3º Furo (Adulto / Teen)</option>
+                                <option value="cartilagem">Furo em Cartilagem (Hélice/Trágus)</option>
+                                <option value="correcao">Correção de Furo Torto</option>
+                                <option value="venda">Venda Avulsa / Troca de Joia</option>
+                                <option value="outro">Outro (especificar na mensagem)</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label for="mensagem" class="block text-sm font-medium text-slate-700">Mensagem ou data de preferência</label>
+                            <textarea id="mensagem" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all bg-slate-50 focus:bg-white resize-none" placeholder="Escreva aqui detalhes adicionais ou a data que você prefere..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-md hover:shadow-lg mt-4 transform hover:-translate-y-1">
+                             ENVIAR SOLICITAÇÃO DE HORÁRIO 
+                        </button>
+                        <p class="text-xs text-center text-slate-400 mt-4">
+                            <i class="fa-solid fa-lock"></i> Seus dados estão seguros. Retornaremos via WhatsApp o mais breve possível.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="mb-6 flex items-center justify-center">
+                <img src="ChatGPT Image 23 de ago. de 2026, 12_44_22.png" alt="Logo Tiny Care" class="h-24 w-auto bg-white rounded-full p-1 shadow-lg hover:scale-105 transition-transform duration-300">
+            </div>
+            <p class="text-sm mb-4">Cuidado, afeto e biossegurança em cada furo. Manaus - AM</p>
+            <p class="text-xs opacity-60">&copy; 2026 Tiny Care - Perfuração Humanizada. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Sucesso Customizado -->
+    <div id="success-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 px-4">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl transform scale-95 transition-transform duration-300" id="success-modal-content">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fa-solid fa-check text-4xl text-green-500"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Solicitação Enviada!</h3>
+            <p class="text-slate-600 mb-8">Recebemos seus dados com sucesso. Nossa equipe entrará em contato via WhatsApp em breve para confirmar seu horário.</p>
+            <button onclick="closeModal()" class="bg-brand-500 hover:bg-brand-600 text-white font-medium py-3 px-8 rounded-full w-full transition-colors">
+                Entendi, obrigado!
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Menu Mobile Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Fechar menu mobile ao clicar em um link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Form Submit Handler & Custom Modal
+        const form = document.getElementById('agendamento-form');
+        const modal = document.getElementById('success-modal');
+        const modalContent = document.getElementById('success-modal-content');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede o recarregamento da página
+            
+            // Aqui seria a lógica de envio (Fetch API/AJAX para backend)
+            // Como é um site de front-end estático, apenas mostramos o modal de sucesso.
+            
+            // Exibir modal
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+            
+            // Resetar formulário
+            form.reset();
+        });
+
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+        }
+
+        // Formatação automática do input de WhatsApp (DDD + Número)
+        const phoneInput = document.getElementById('whatsapp');
+        phoneInput.addEventListener('input', function (e) {
+            var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
+    </script>
+</body>
+</html>
