@@ -82,7 +82,7 @@
                     <a href="#diferenciais" class="text-slate-300 hover:text-brand-400 font-medium transition-colors">Diferenciais</a>
                     <a href="#sobre" class="text-slate-300 hover:text-brand-400 font-medium transition-colors">Sobre Nós</a>
                     <a href="#servicos" class="text-slate-300 hover:text-brand-400 font-medium transition-colors">Serviços e Valores</a>
-                    <a href="#escola" class="text-slate-300 hover:text-brand-400 font-medium transition-colors">Escola</a>
+                    <a href="#centro-de-formacao" class="text-slate-300 hover:text-brand-400 font-medium transition-colors">Centro de Formação</a>
                     <a href="https://wa.me/5592981234567" target="_blank" class="bg-brand-500 hover:bg-brand-600 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg flex items-center gap-2 transform hover:-translate-y-0.5">
                         <i class="fa-brands fa-whatsapp text-lg"></i> Agendar
                     </a>
@@ -103,7 +103,7 @@
                 <a href="#diferenciais" class="mobile-link block px-3 py-3 text-base font-medium text-slate-300 hover:text-brand-400 hover:bg-slate-800 rounded-md">Diferenciais</a>
                 <a href="#sobre" class="mobile-link block px-3 py-3 text-base font-medium text-slate-300 hover:text-brand-400 hover:bg-slate-800 rounded-md">Sobre Nós</a>
                 <a href="#servicos" class="mobile-link block px-3 py-3 text-base font-medium text-slate-300 hover:text-brand-400 hover:bg-slate-800 rounded-md">Serviços e Valores</a>
-                <a href="#escola" class="mobile-link block px-3 py-3 text-base font-medium text-slate-300 hover:text-brand-400 hover:bg-slate-800 rounded-md">Escola</a>
+                <a href="#centro-de-formacao" class="mobile-link block px-3 py-3 text-base font-medium text-slate-300 hover:text-brand-400 hover:bg-slate-800 rounded-md">Centro de Formação</a>
                 <a href="#contato" class="mobile-link block px-3 py-3 text-base font-medium text-white bg-brand-500 hover:bg-brand-600 rounded-md mt-4 text-center transition-colors">Agendar Agora</a>
             </div>
         </div>
@@ -315,7 +315,7 @@
     </section>
 
     <section id="depoimentos" class="py-24 bg-white relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
             <h2 class="text-4xl md:text-5xl font-bold text-brand-500 mb-6 tracking-tight">O que os nossos<br>clientes dizem?</h2>
             
@@ -324,53 +324,54 @@
             </p>
 
             <!-- Carrossel de Depoimentos Completo -->
-            <div class="relative px-8 md:px-16">
+            <div class="relative px-4 sm:px-12 md:px-16">
                 <!-- Seta Esquerda -->
-                <button id="prev-testimonial" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 text-brand-500 hover:text-brand-600 text-4xl focus:outline-none transition-transform hover:scale-110">
+                <button id="prev-testimonial" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 text-brand-500 hover:text-brand-600 text-3xl sm:text-4xl focus:outline-none transition-transform hover:scale-110 p-2">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
 
                 <!-- Área de visualização (esconde o que vazar) -->
-                <div class="overflow-hidden py-4">
+                <div class="overflow-hidden py-4 w-full">
                     <!-- Trilha que vai deslizar -->
-                    <div id="testimonial-track" class="flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
+                    <div id="testimonial-track" class="flex transition-transform duration-500 ease-in-out w-full" style="transform: translateX(0%);">
                         
                         <!-- Depoimento 1 -->
-                        <div class="min-w-full flex-shrink-0 flex justify-center px-4">
-                            <div class="bg-brand-50 rounded-[2rem] p-8 md:p-10 w-full max-w-2xl flex flex-col items-center text-center shadow-sm border border-brand-100 relative mx-auto">
+                        <div class="w-full flex-shrink-0 flex justify-center px-8 sm:px-12 box-border">
+                            <!-- AQUI: max-w-lg deixa o card mais estreito e compacto -->
+                            <div class="bg-brand-50 rounded-[2rem] p-6 sm:p-8 w-full max-w-lg flex flex-col items-center text-center shadow-sm border border-brand-100 relative mx-auto">
                                 <i class="fa-solid fa-quote-left text-3xl text-brand-300 mb-4 opacity-50"></i>
-                                <p class="text-lg md:text-xl text-slate-700 italic font-light leading-relaxed mb-6">
-                                    "É raro encontrar um serviço que combine tanta competência técnica com um acolhimento tão genuíno. Acompanho o trabalho da Tiny Care e atesto a excelência dos profissionais e o cuidado em cada detalhe. É uma instituição que confio e indico de olhos fechados aos meus pacientes."
+                                <p class="text-base sm:text-lg text-slate-700 italic font-light leading-relaxed mb-6">
+                                    "A melhor escolha que fiz! Ambiente seguro, acolhedor e profissionais extremamente capacitados. Recomendo muito!"
                                 </p>
-                                <div class="flex flex-col items-center gap-3">
+                                <div class="flex flex-col items-center gap-3 mt-auto">
                                     <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Dr. Paulo" class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-md">
-                                    <span class="text-lg font-bold text-brand-500">Dr. Paulo Silva</span>
+                                    <span class="text-lg font-bold text-brand-500">Dr. Paulo</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Depoimento 2 -->
-                        <div class="min-w-full flex-shrink-0 flex justify-center px-4">
-                            <div class="bg-brand-50 rounded-[2rem] p-8 md:p-10 w-full max-w-2xl flex flex-col items-center text-center shadow-sm border border-brand-100 relative mx-auto">
+                        <div class="w-full flex-shrink-0 flex justify-center px-8 sm:px-12 box-border">
+                            <div class="bg-brand-50 rounded-[2rem] p-6 sm:p-8 w-full max-w-lg flex flex-col items-center text-center shadow-sm border border-brand-100 relative mx-auto">
                                 <i class="fa-solid fa-quote-left text-3xl text-brand-300 mb-4 opacity-50"></i>
-                                <p class="text-lg md:text-xl text-slate-700 italic font-light leading-relaxed mb-6">
-                                    "Serviço excepcional! A comunicação da equipe da Tiny Care é maravilhosa, sempre me mantendo informada de tudo e me deixando super tranquila durante o dia. É um alívio imenso saber que minha pequena está recebendo o melhor cuidado possível, com tanta atenção e responsabilidade. Parabéns pelo trabalho incrível!"
+                                <p class="text-base sm:text-lg text-slate-700 italic font-light leading-relaxed mb-6">
+                                    "Serviço excepcional! A comunicação da equipe da Tiny Care é maravilhosa, sempre me mantendo informada de tudo e me deixando super tranquila durante o dia. É um alívio imenso saber que meu pequeno está recebendo o melhor cuidado possível, com tanta atenção e responsabilidade. Parabéns pelo trabalho incrível!"
                                 </p>
-                                <div class="flex flex-col items-center gap-3">
-                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80" alt="Giovana Braido" class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-md">
-                                    <span class="text-lg font-bold text-brand-500">Luiza Alencar</span>
+                                <div class="flex flex-col items-center gap-3 mt-auto">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80" alt="Eduarda Silva" class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-md">
+                                    <span class="text-lg font-bold text-brand-500">Eduarda Silva</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Depoimento 3 -->
-                        <div class="min-w-full flex-shrink-0 flex justify-center px-4">
-                            <div class="bg-brand-50 rounded-[2rem] p-8 md:p-10 w-full max-w-2xl flex flex-col items-center text-center shadow-sm border border-brand-100 relative mx-auto">
+                        <div class="w-full flex-shrink-0 flex justify-center px-8 sm:px-12 box-border">
+                            <div class="bg-brand-50 rounded-[2rem] p-6 sm:p-8 w-full max-w-lg flex flex-col items-center text-center shadow-sm border border-brand-100 relative mx-auto">
                                 <i class="fa-solid fa-quote-left text-3xl text-brand-300 mb-4 opacity-50"></i>
-                                <p class="text-lg md:text-xl text-slate-700 italic font-light leading-relaxed mb-6">
-                                    "A melhor escolha que fiz foi conhecer a Tiny Care. O ambiente é super acolhedor, seguro e impecável, pensado nos mínimos detalhes. Dá para ver o quanto os profissionais são capacitados e apaixonados pelo que fazem."
+                                <p class="text-base sm:text-lg text-slate-700 italic font-light leading-relaxed mb-6">
+                                    "Atendimento impecável! Confio de olhos fechados na equipe da Tiny Care. É muito amor e cuidado envolvido."
                                 </p>
-                                <div class="flex flex-col items-center gap-3">
+                                <div class="flex flex-col items-center gap-3 mt-auto">
                                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Ana Beatriz" class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-md">
                                     <span class="text-lg font-bold text-brand-500">Ana Beatriz</span>
                                 </div>
@@ -381,7 +382,7 @@
                 </div>
 
                 <!-- Seta Direita -->
-                <button id="next-testimonial" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 text-brand-500 hover:text-brand-600 text-4xl focus:outline-none transition-transform hover:scale-110">
+                <button id="next-testimonial" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 text-brand-500 hover:text-brand-600 text-3xl sm:text-4xl focus:outline-none transition-transform hover:scale-110 p-2">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
@@ -396,7 +397,7 @@
         </div>
     </section>
 
-    <section id="escola" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+    <section id="centro-de-formacao" class="py-24 bg-slate-900 text-white relative overflow-hidden">
         <!-- Elementos decorativos de fundo -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20"></div>
